@@ -6,7 +6,6 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
   }
 
   type Auth {
@@ -15,7 +14,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
+    user: [User]
     me: User
   }
 
