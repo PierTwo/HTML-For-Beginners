@@ -9,33 +9,35 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header className="bg-gray-200 container mx-auto px-4">
+      <div className="flex justify-start">
         <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">Tutorials</h1>
+          <Link className="text-white" to="/">
+            <h1 className="text-2xl bg-sky-500/100 px-4 pt-2 pb-2 mb-4 rounded-b-lg">
+              Tutorials
+            </h1>
           </Link>
-          <p className="m-0">HTML Tutorials For Beginners</p>
+          <p className="m-0">HTML Tutorials For Beginners... </p>
         </div>
-        <div>
+        <div className="">
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link className="btn bg-sky-400 p-3 m-2" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn bg-sky-400 p-2 m-2" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
-            <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+            <div className="mt-2">
+              <Link className="btn bg-sky-400 p-3" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn bg-sky-400 p-3" to="/signup">
                 Signup
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>

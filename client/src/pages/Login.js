@@ -41,7 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <main className="">
+    <main className="flex justify-center">
       <div className="">
         <div className="card">
           <h4 className="card-header">Login</h4>
@@ -52,25 +52,32 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
+              <form
+                className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+                onSubmit={handleFormSubmit}
+              >
+                <div>
+                  <input
+                    className="bg-gray-200 px-8 pt-4 pb-4 mb-4"
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <input
+                    className="bg-gray-200 px-8 pt-4 pb-4 mb-4"
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                </div>
                 <button
-                  className="btn"
+                  className="btn btn-block bg-sky-500/100 px-4 pt-2 pb-2 mb-4 text-white"
                   style={{ cursor: "pointer" }}
                   type="submit"
                 >

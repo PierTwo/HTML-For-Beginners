@@ -4,8 +4,9 @@ import { useQuery } from "@apollo/client";
 const Home = () => {
   return (
     <main>
-      <div className="flex-row justify-center">
-        <h3>This is test, the boilerplate is working</h3>
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        <h3 className="">This is test, the boilerplate is working</h3>
       </div>
     </main>
   );
