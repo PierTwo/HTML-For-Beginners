@@ -9,7 +9,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-neutral-200 container mx-auto px-4">
+    <header className="bg-neutral-200 container mx-auto px-4 rounded-b">
       <div className="flex justify-start">
         <div>
           <Link className="text-white" to="/">
