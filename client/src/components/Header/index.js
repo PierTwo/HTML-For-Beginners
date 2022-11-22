@@ -10,8 +10,8 @@ const Header = () => {
   };
   return (
     <header className="bg-neutral-200 container mx-auto px-4 rounded-b">
-      <div className="flex justify-start">
-        <div>
+      <div className="flex justify-around">
+        <div className="">
           <Link className="text-white" to="/">
             <h1 className="font-extrabold text-3xl bg-sky-500/100 px-4 pt-2 pb-2 mb-4 rounded-b-lg">
               Tutorials
