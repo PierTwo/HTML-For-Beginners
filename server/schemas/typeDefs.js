@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server-express");
+const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
   type User {
@@ -35,6 +35,6 @@ const typeDefs = gql`
       step_completed: Int
     ): Progress
   }
-`;
+`
 
-module.exports = typeDefs;
+module.exports = typeDefs
