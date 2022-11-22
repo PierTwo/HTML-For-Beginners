@@ -91,8 +91,7 @@ const Home = () => {
         <div className="final-results">
           <h1>Final Results</h1>
           <h2>
-            {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
+            {score} out of {questions.length} correct - ({(score / questions.length) * 100}%)
           </h2>
           <button onClick={() => restartGame()}>Restart game</button>
         </div>
@@ -109,10 +108,7 @@ const Home = () => {
           <ul>
             {questions[currentQuestion].options.map((option) => {
               return (
-                <li
-                  key={option.id}
-                  onClick={() => optionClicked(option.isCorrect)}
-                >
+                <li key={option.id} onClick={() => optionClicked(option.isCorrect)}>
                   {option.text}
                 </li>
               );
