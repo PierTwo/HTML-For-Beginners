@@ -1,3 +1,3 @@
 const User = require("./User");
-// Tutorial model could go here
-module.exports = { User };
+const Progress = require("./Progress");
+module.exports = { User, Progress };
