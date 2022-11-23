@@ -44,7 +44,7 @@ const Login = (props) => {
     <main className="flex justify-center">
       <div className="">
         <div className="card">
-          <h4 className="card-header">Login</h4>
+          <h4 className="card-header p-4 text-xl">Login</h4>
           <div className="card-body">
             {data ? (
               <p>
