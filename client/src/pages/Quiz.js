@@ -86,8 +86,8 @@ const Quiz = () => {
     setShowResults(false);
   };
   return (
-    <div className="p-8 mt-8 flex justify-center">
-      <div className="grid justify-items-center bg-sky-200">
+    <div className="rounded p-8 mt-8 flex justify-center">
+      <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
         {/* 1. Header  */}
         <div className="pt-2 pb-2 mt-2 mb-2">
           <h1 className="font-extrabold text-4xl">HTML Quiz</h1>

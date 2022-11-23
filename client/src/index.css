@@ -11,6 +11,8 @@ html {
 .mouse-pointer:hover {
   cursor: pointer;
   background-color: aliceblue;
+  border-radius: 2px;
+  padding: 5px;
 }
 
 footer {
