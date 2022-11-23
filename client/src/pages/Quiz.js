@@ -90,7 +90,9 @@ const Quiz = () => {
       <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
         {/* 1. Header  */}
         <div className="pt-2 pb-2 mt-2 mb-2">
-          <h1 className="font-extrabold text-4xl">HTML Quiz</h1>
+          <h1 className="bg-zinc-900 rounded p-2 font-extrabold text-4xl text-slate-50">
+            HTML Quiz
+          </h1>
 
           {/* 2. Current Score  */}
           <h2 className="font-bold text-2xl">Score: {score}</h2>
