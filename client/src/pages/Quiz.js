@@ -61,6 +61,33 @@ const Quiz = () => {
         { id: 3, text: '<div />', isCorrect: false },
       ],
     },
+    {
+      text: 'How many h tags are there in HTML syntax?',
+      options: [
+        { id: 0, text: '5', isCorrect: false },
+        { id: 1, text: '10', isCorrect: false },
+        { id: 2, text: '3', isCorrect: false },
+        { id: 3, text: '6', isCorrect: true },
+      ],
+    },
+    {
+      text: 'How would you impliment a link into your HTML?',
+      options: [
+        { id: 0, text: '<a href= ""></a>', isCorrect: true },
+        { id: 1, text: '<link></link>', isCorrect: false },
+        { id: 2, text: '<tag></tag>', isCorrect: false },
+        { id: 3, text: '<insert></insert>', isCorrect: false },
+      ],
+    },
+    {
+      text: 'When creating either and ordered list or an unordered list, what tags need to be put inside that element?',
+      options: [
+        { id: 0, text: '<ol></ol>', isCorrect: false },
+        { id: 1, text: '<ul></ul>', isCorrect: false },
+        { id: 2, text: '<li></li>', isCorrect: true },
+        { id: 3, text: '<l></l>', isCorrect: false },
+      ],
+    },
   ];
 
   // Helper Functions
