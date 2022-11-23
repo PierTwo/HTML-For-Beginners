@@ -23,3 +23,23 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SET_PROGRESS = gql`
+  mutation setProgress(
+    $username: String!
+    $tutorial_id: Int
+    $step_completed: Int
+  ) {
+    setProgress(
+      username: $username
+      tutorial_id: $tutorial_id
+      step_completed: $step_completed
+    ) {
+      results {
+        username
+        tutorial_id
+        step_completed
+      }
+    }
+  }
+`;
