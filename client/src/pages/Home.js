@@ -9,48 +9,57 @@ const Home = () => {
 
   const questions = [
     {
-      text: 'What is the capital of America?',
+      text: 'What does HTML stand for?',
       options: [
-        { id: 0, text: 'New York City', isCorrect: false },
-        { id: 1, text: 'Boston', isCorrect: false },
-        { id: 2, text: 'Santa Fe', isCorrect: false },
-        { id: 3, text: 'Washington DC', isCorrect: true },
+        { id: 0, text: 'Hope To Make Lines', isCorrect: false },
+        { id: 1, text: 'How To Make Light', isCorrect: false },
+        { id: 2, text: 'Honestly Too Much Language', isCorrect: false },
+        { id: 3, text: 'Hyper Text Markup Language', isCorrect: true },
       ],
     },
     {
-      text: 'What year was the Constitution of America written?',
+      text: 'What is the very first tag you will use in a HTML document?',
       options: [
-        { id: 0, text: '1787', isCorrect: true },
-        { id: 1, text: '1776', isCorrect: false },
-        { id: 2, text: '1774', isCorrect: false },
-        { id: 3, text: '1826', isCorrect: false },
+        { id: 0, text: '<!DOCTYPE html>', isCorrect: true },
+        { id: 1, text: '<start></start>', isCorrect: false },
+        { id: 2, text: '<header></header>', isCorrect: false },
+        { id: 3, text: '<!BEGIN html>', isCorrect: false },
       ],
     },
     {
-      text: 'Who was the second president of the US?',
+      text: 'What tag contains all other tags with the exception of <!DOCTYPE html> tag?',
       options: [
-        { id: 0, text: 'John Adams', isCorrect: true },
-        { id: 1, text: 'Paul Revere', isCorrect: false },
-        { id: 2, text: 'Thomas Jefferson', isCorrect: false },
-        { id: 3, text: 'Benjamin Franklin', isCorrect: false },
+        { id: 0, text: '<html></html>', isCorrect: true },
+        { id: 1, text: '<head></head>', isCorrect: false },
+        { id: 2, text: '<body></body>', isCorrect: false },
+        { id: 3, text: '<footer></footer>', isCorrect: false },
       ],
     },
     {
-      text: 'What is the largest state in the US?',
+      text: 'What tags are used to start the area that is visible in the browser?',
       options: [
-        { id: 0, text: 'California', isCorrect: false },
-        { id: 1, text: 'Alaska', isCorrect: true },
-        { id: 2, text: 'Texas', isCorrect: false },
-        { id: 3, text: 'Montana', isCorrect: false },
+        { id: 0, text: '<html></html>', isCorrect: false },
+        { id: 1, text: '<body></body>', isCorrect: true },
+        { id: 2, text: '<head></head>', isCorrect: false },
+        { id: 3, text: '<!DOCTYPE html>', isCorrect: false },
       ],
     },
     {
-      text: 'Which of the following countries DO NOT border the US?',
+      text: 'What tag defines the documents title that is shown in the browser?',
       options: [
-        { id: 0, text: 'Canada', isCorrect: false },
-        { id: 1, text: 'Russia', isCorrect: true },
-        { id: 2, text: 'Cuba', isCorrect: true },
-        { id: 3, text: 'Mexico', isCorrect: false },
+        { id: 0, text: '<header></header>', isCorrect: false },
+        { id: 1, text: '<title></title>', isCorrect: true },
+        { id: 2, text: '<div></div>', isCorrect: false },
+        { id: 3, text: '<head></head>', isCorrect: false },
+      ],
+    },
+    {
+      text: 'What is an example of a self closing HTML tag?',
+      options: [
+        { id: 0, text: '<header />', isCorrect: false },
+        { id: 1, text: '<img />', isCorrect: true },
+        { id: 2, text: '<head />', isCorrect: false },
+        { id: 3, text: '<div />', isCorrect: false },
       ],
     },
   ];
