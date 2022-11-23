@@ -8,6 +8,11 @@ html {
   min-height: 100vh;
 }
 
+.mouse-pointer:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+
 footer {
   margin-top: 100px;
   clear: both;

@@ -86,22 +86,22 @@ const Quiz = () => {
     setShowResults(false);
   };
   return (
-    <div className="mt-8 flex justify-center">
+    <div className="p-8 mt-8 flex justify-center">
       <div className="grid justify-items-center bg-sky-200">
         {/* 1. Header  */}
         <div className="pt-2 pb-2 mt-2 mb-2">
-          <h1 className="font-extrabold text-3xl">HTML Quiz</h1>
+          <h1 className="font-extrabold text-4xl">HTML Quiz</h1>
 
           {/* 2. Current Score  */}
-          <h2 className="font-bold text-xl">Score: {score}</h2>
+          <h2 className="font-bold text-2xl">Score: {score}</h2>
         </div>
 
         {/* 3. Show results or show the question game  */}
         {showResults ? (
           /* 4. Final Results */
-          <div className="pt-2 pb-2 mt-2 mb-2">
-            <h1>Final Results</h1>
-            <h2>
+          <div className="p-2 m-2">
+            <h1 className="mt-2 mb-2 text-2xl">Final Results</h1>
+            <h2 className="mt-2 mb-2 text-xl">
               {score} out of {questions.length} correct - (
               {(score / questions.length) * 100}%)
             </h2>
@@ -111,10 +111,12 @@ const Quiz = () => {
           /* 5. Question Card  */
           <div className="p-2 m-2">
             {/* Current Question  */}
-            <h2 className="mt-2 mb-2">
+            <h2 className="mt-2 mb-2 text-2xl">
               Question: {currentQuestion + 1} out of {questions.length}
             </h2>
-            <h3 className="mt-3 mb-3">{questions[currentQuestion].text}</h3>
+            <h3 className="mt-3 mb-3 text-xl">
+              {questions[currentQuestion].text}
+            </h3>
 
             {/* List of possible answers  */}
             <ul>
@@ -123,6 +125,7 @@ const Quiz = () => {
                   <li
                     key={option.id}
                     onClick={() => optionClicked(option.isCorrect)}
+                    className="mouse-pointer text-lg"
                   >
                     {option.text}
                   </li>
