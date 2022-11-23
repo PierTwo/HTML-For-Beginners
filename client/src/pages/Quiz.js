@@ -61,6 +61,33 @@ const Quiz = () => {
         { id: 3, text: '<div />', isCorrect: false },
       ],
     },
+    {
+      text: 'How many h tags are there in HTML syntax?',
+      options: [
+        { id: 0, text: '5', isCorrect: false },
+        { id: 1, text: '10', isCorrect: false },
+        { id: 2, text: '3', isCorrect: false },
+        { id: 3, text: '6', isCorrect: true },
+      ],
+    },
+    {
+      text: 'How would you impliment a link into your HTML?',
+      options: [
+        { id: 0, text: '<a href= ""></a>', isCorrect: true },
+        { id: 1, text: '<link></link>', isCorrect: false },
+        { id: 2, text: '<tag></tag>', isCorrect: false },
+        { id: 3, text: '<insert></insert>', isCorrect: false },
+      ],
+    },
+    {
+      text: 'When creating either and ordered list or an unordered list, what tags need to be put inside that element?',
+      options: [
+        { id: 0, text: '<ol></ol>', isCorrect: false },
+        { id: 1, text: '<ul></ul>', isCorrect: false },
+        { id: 2, text: '<li></li>', isCorrect: true },
+        { id: 3, text: '<l></l>', isCorrect: false },
+      ],
+    },
   ];
 
   // Helper Functions
@@ -86,48 +113,57 @@ const Quiz = () => {
     setShowResults(false);
   };
   return (
-    <div>
-      {/* 1. Header  */}
-      <h1>HTML Quiz</h1>
+    <div className="rounded p-8 mt-8 flex justify-center">
+      <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
+        {/* 1. Header  */}
+        <div className="pt-2 pb-2 mt-2 mb-2">
+          <h1 className="bg-zinc-900 rounded p-2 font-extrabold text-4xl text-slate-50">
+            HTML Quiz
+          </h1>
 
-      {/* 2. Current Score  */}
-      <h2>Score: {score}</h2>
-
-      {/* 3. Show results or show the question game  */}
-      {showResults ? (
-        /* 4. Final Results */
-        <div className="final-results">
-          <h1>Final Results</h1>
-          <h2>
-            {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
-          </h2>
-          <button onClick={() => restartGame()}>Restart game</button>
+          {/* 2. Current Score  */}
+          <h2 className="font-bold text-2xl">Score: {score}</h2>
         </div>
-      ) : (
-        /* 5. Question Card  */
-        <div className="question-card">
-          {/* Current Question  */}
-          <h2>
-            Question: {currentQuestion + 1} out of {questions.length}
-          </h2>
-          <h3 className="question-text">{questions[currentQuestion].text}</h3>
 
-          {/* List of possible answers  */}
-          <ul>
-            {questions[currentQuestion].options.map((option) => {
-              return (
-                <li
-                  key={option.id}
-                  onClick={() => optionClicked(option.isCorrect)}
-                >
-                  {option.text}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+        {/* 3. Show results or show the question game  */}
+        {showResults ? (
+          /* 4. Final Results */
+          <div className="p-2 m-2">
+            <h1 className="mt-2 mb-2 text-2xl">Final Results</h1>
+            <h2 className="mt-2 mb-2 text-xl">
+              {score} out of {questions.length} correct - (
+              {(score / questions.length) * 100}%)
+            </h2>
+            <button onClick={() => restartGame()}>Restart game</button>
+          </div>
+        ) : (
+          /* 5. Question Card  */
+          <div className="p-2 m-2">
+            {/* Current Question  */}
+            <h2 className="mt-2 mb-2 text-2xl">
+              Question: {currentQuestion + 1} out of {questions.length}
+            </h2>
+            <h3 className="mt-3 mb-3 text-xl">
+              {questions[currentQuestion].text}
+            </h3>
+
+            {/* List of possible answers  */}
+            <ul>
+              {questions[currentQuestion].options.map((option) => {
+                return (
+                  <li
+                    key={option.id}
+                    onClick={() => optionClicked(option.isCorrect)}
+                    className="mouse-pointer text-lg"
+                  >
+                    {option.text}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
