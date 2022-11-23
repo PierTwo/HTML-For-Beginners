@@ -4,7 +4,7 @@ const Tutorial = () => {
   // Properties
   const [showResults, setShowResults] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
 
   const steps = [
     {
@@ -69,7 +69,7 @@ const Tutorial = () => {
 
           {/* 2. Current Score  */}
           <h2 className="font-bold text-2xl">
-            Step: {step} of {steps.length}
+            Step: {currentStep + 1} of {steps.length}
           </h2>
         </div>
 
@@ -84,7 +84,9 @@ const Tutorial = () => {
           <div className="p-2 m-2">
             {/* Current Question  */}
             <h3 className="mt-3 mb-3 text-xl">{steps[currentStep].text}</h3>
-
+            <button onClick={() => setCurrentStep(currentStep + 1)}>
+              Next
+            </button>
             {/* List of possible answers  */}
             {/* <ul>
               {steps[currentQuestion].options.map((option) => {
