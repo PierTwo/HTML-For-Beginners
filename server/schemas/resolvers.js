@@ -11,8 +11,11 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
       }
-      throw new AuthenticationError('You need to be logged in!')
-    }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    getProgress: async (parent, { username, step_completed, tutorial_id }) => {
+      return Progress.findOne({ username, step_completed, tutorial_id });
+    },
   },
 
   Mutation: {
@@ -36,9 +39,18 @@ const resolvers = {
 
       const token = signToken(user)
 
-      return { token, user }
-    }
-  }
-}
+      return { token, user };
+    },
+    setProgress: async (parent, { username, step_completed, tutorial_id }) => {
+      const progress = await Progress.create({
+        username,
+        step_completed,
+        tutorial_id,
+      });
+      return progress;
+    },
+  },
+};
+
 
 module.exports = resolvers
