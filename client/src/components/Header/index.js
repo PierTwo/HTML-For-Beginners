@@ -13,7 +13,7 @@ const Header = () => {
       <div className="flex justify-around">
         <div className="">
           <Link className="text-white" to="/">
-            <h1 className="font-extrabold text-3xl bg-sky-500/100 px-4 pt-2 pb-2 mb-4 rounded-b-lg">
+            <h1 className="font-extrabold text-3xl bg-sky-500/100 pt-4 pb-4 mb-4 rounded-b-lg text-center">
               Tutorials
             </h1>
           </Link>
@@ -33,7 +33,7 @@ const Header = () => {
               </button>
             </>
           ) : (
-            <div className="mt-2">
+            <div className="mt-4">
               <Link className="btn font-medium p-3" to="/login">
                 Login
               </Link>
