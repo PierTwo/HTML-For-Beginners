@@ -22,13 +22,13 @@ const typeDefs = gql`
   type Query {
     user: [User]
     me: User
-    getProgress: Tutorial
+    tutorial(username: String, tutorial_id: Int): Tutorial
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    setProgress(
+    setTutorial(
       username: String!
       tutorial_id: Int
       step_completed: Int

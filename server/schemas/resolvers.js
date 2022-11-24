@@ -13,11 +13,12 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    getProgress: async (parent, { tutorial_id }) => {
-      console.log('tutorial_id ', tutorial_id);
-      return Tutorial.findOne({
+    tutorial: async (parent, { username, tutorial_id }) => {
+      const results = await Tutorial.findOne({
+        username,
         tutorial_id,
       });
+      return results;
     },
   },
 
@@ -44,14 +45,14 @@ const resolvers = {
 
       return { token, user };
     },
-    setProgress: async (parent, { username, step_completed, tutorial_id }) => {
+    setTutorial: async (parent, { username, step_completed, tutorial_id }) => {
       console.log('I AM HERE');
-      const progress = await Tutorial.create({
+      const tutorial = await Tutorial.create({
         username,
         step_completed,
         tutorial_id,
       });
-      return progress;
+      return tutorial;
     },
   },
 };

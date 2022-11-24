@@ -24,13 +24,13 @@ export const ADD_USER = gql`
   }
 `;
 
-export const SET_PROGRESS = gql`
-  mutation setProgress(
+export const SET_TUTORIAL = gql`
+  mutation setTutorial(
     $username: String!
     $tutorial_id: Int
     $step_completed: Int
   ) {
-    setProgress(
+    setTutorial(
       username: $username
       tutorial_id: $tutorial_id
       step_completed: $step_completed

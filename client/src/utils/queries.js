@@ -20,9 +20,9 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const GET_PROGRESS = gql`
-  query getProgress($tutorial_id: Int) {
-    getProgress(tutorial_id: $tutorial_id) {
+export const GET_TUTORIAL = gql`
+  query tutorial($username: String!, $tutorial_id: Int) {
+    tutorial(username: $username, tutorial_id: $tutorial_id) {
       username
       tutorial_id
       step_completed

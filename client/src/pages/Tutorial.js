@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { GET_PROGRESS } from '../utils/queries';
+import { GET_TUTORIAL } from '../utils/queries';
 
 const Tutorial = (props) => {
   const [username] = useState(props.data.username);
@@ -11,8 +10,8 @@ const Tutorial = (props) => {
   const [showResults, setShowResults] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [step, setStep] = useState(0);
-  const { loading, data } = useQuery(GET_PROGRESS, {
-    variables: { tutorial_id: 1 },
+  const { loading, data } = useQuery(GET_TUTORIAL, {
+    variables: { username, tutorial_id: 1 },
   });
   if (loading) {
     return <div>Loading...</div>;
@@ -54,18 +53,18 @@ const Tutorial = (props) => {
   // Helper Functions
 
   /* A possible answer was clicked */
-  const optionClicked = (isCorrect) => {
-    // Increment the score
-    if (isCorrect) {
-      setStep(step + 1);
-    }
+  //   const optionClicked = (isCorrect) => {
+  //     // Increment the score
+  //     if (isCorrect) {
+  //       setStep(step + 1);
+  //     }
 
-    if (currentStep + 1 < steps.length) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      setShowResults(true);
-    }
-  };
+  //     if (currentStep + 1 < steps.length) {
+  //       setCurrentStep(currentStep + 1);
+  //     } else {
+  //       setShowResults(true);
+  //     }
+  //   };
 
   /* Resets the game back to default */
   const restartTutorial = () => {

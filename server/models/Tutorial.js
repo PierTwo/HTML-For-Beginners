@@ -4,18 +4,14 @@ const tutorialSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: false,
-    trim: true,
   },
   tutorial_id: {
     type: Number,
-    required: false,
-    unique: false,
+    default: 0,
   },
   step_completed: {
     type: Number,
-    required: false,
-    unique: false,
+    default: 0,
   },
 });
 const Tutorial = model('Tutorial', tutorialSchema);
