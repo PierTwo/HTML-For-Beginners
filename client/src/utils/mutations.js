@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -35,11 +35,9 @@ export const SET_PROGRESS = gql`
       tutorial_id: $tutorial_id
       step_completed: $step_completed
     ) {
-      results {
-        username
-        tutorial_id
-        step_completed
-      }
+      username
+      tutorial_id
+      step_completed
     }
   }
 `;

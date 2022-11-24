@@ -5,7 +5,9 @@ import auth from '../utils/auth';
 import Tutorial from './Tutorial';
 
 const Home = () => {
-  return <div className="App">{auth.loggedIn() && Tutorial()}</div>;
+  return (
+    <div className="App">{auth.loggedIn() && Tutorial(auth.getProfile())}</div>
+  );
 };
 
 export default Home;

@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { GET_PROGRESS } from '../utils/queries';
 
-const Tutorial = () => {
+const Tutorial = (props) => {
+  const [username] = useState(props.data.username);
+  //   const { username: userParam } = useParams();
   // Properties
+
   const [showResults, setShowResults] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [step, setStep] = useState(0);
+  const { loading, data } = useQuery(GET_PROGRESS, {
+    variables: { tutorial_id: 1 },
+  });
+  if (loading) {
+    return <div>Loading...</div>;
+  } else {
+    console.log(username);
+    console.log('data: ', data);
+  }
 
   const steps = [
     {
@@ -84,6 +99,11 @@ const Tutorial = () => {
           <div className="p-2 m-2">
             {/* Current Question  */}
             <h3 className="mt-3 mb-3 text-xl">{steps[currentStep].text}</h3>
+            {currentStep > 0 && (
+              <button onClick={() => setCurrentStep(currentStep - 1)}>
+                Previous
+              </button>
+            )}
             <button onClick={() => setCurrentStep(currentStep + 1)}>
               Next
             </button>
