@@ -47,11 +47,18 @@ const resolvers = {
     },
     setTutorial: async (parent, { username, step_completed, tutorial_id }) => {
       console.log('I AM HERE');
-      const tutorial = await Tutorial.create({
-        username,
-        step_completed,
-        tutorial_id,
-      });
+      const tutorial = await Tutorial.findOneAndUpdate(
+        {
+          username,
+          tutorial_id,
+        },
+        {
+          username,
+          step_completed,
+          tutorial_id,
+        },
+        { upsert: true }
+      );
       return tutorial;
     },
   },

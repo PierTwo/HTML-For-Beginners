@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import React, { useState, useEffect } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_TUTORIAL } from '../utils/queries';
+import { SET_TUTORIAL } from '../utils/mutations';
 
 const Tutorial = (props) => {
   const [username] = useState(props.data.username);
-  //   const { username: userParam } = useParams();
-  // Properties
-
-  const [showResults, setShowResults] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [step, setStep] = useState(0);
+
   const { loading, data } = useQuery(GET_TUTORIAL, {
     variables: { username, tutorial_id: 1 },
   });
+  const [setTutorial] = useMutation(SET_TUTORIAL);
+  useEffect(() => {
+    if (data?.tutorial) {
+      setCurrentStep(
+        data.tutorial?.step_completed ? data.tutorial.step_completed : 0
+      );
+    }
+  }, [data]);
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log(username);
-    console.log('data: ', data);
+    console.log(data);
+    console.log(currentStep);
   }
 
   const steps = [
@@ -50,78 +55,41 @@ const Tutorial = (props) => {
     },
   ];
 
-  // Helper Functions
-
-  /* A possible answer was clicked */
-  //   const optionClicked = (isCorrect) => {
-  //     // Increment the score
-  //     if (isCorrect) {
-  //       setStep(step + 1);
-  //     }
-
-  //     if (currentStep + 1 < steps.length) {
-  //       setCurrentStep(currentStep + 1);
-  //     } else {
-  //       setShowResults(true);
-  //     }
-  //   };
-
-  /* Resets the game back to default */
-  const restartTutorial = () => {
-    // setScore(0);
-    setCurrentStep(1);
-    setShowResults(false);
+  const handleClick = () => {
+    setCurrentStep(currentStep + 1);
+    if (currentStep + 1 > data.tutorial.step_completed) {
+      setTutorial({
+        variables: {
+          username,
+          tutorial_id: 1,
+          step_completed: currentStep + 1,
+        },
+      });
+    }
   };
   return (
     <div className="rounded p-8 mt-8 flex justify-center">
       <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
-        {/* 1. Header  */}
         <div className="pt-2 pb-2 mt-2 mb-2">
           <h1 className="bg-zinc-900 rounded p-2 font-extrabold text-4xl text-slate-50">
             HTML Tutorial
           </h1>
 
-          {/* 2. Current Score  */}
           <h2 className="font-bold text-2xl">
             Step: {currentStep + 1} of {steps.length}
           </h2>
         </div>
-
-        {/* 3. Show results or show the question game  */}
-        {showResults ? (
-          /* 4. Final Results */
-          <div className="p-2 m-2">
-            <button onClick={() => restartTutorial()}>Restart Tutorial</button>
-          </div>
-        ) : (
-          /* 5. Question Card  */
-          <div className="p-2 m-2">
-            {/* Current Question  */}
-            <h3 className="mt-3 mb-3 text-xl">{steps[currentStep].text}</h3>
-            {currentStep > 0 && (
-              <button onClick={() => setCurrentStep(currentStep - 1)}>
-                Previous
-              </button>
-            )}
-            <button onClick={() => setCurrentStep(currentStep + 1)}>
-              Next
+        <div className="p-2 m-2">
+          <h3 className="mt-3 mb-3 text-xl">{steps[currentStep].text}</h3>
+          {currentStep > 0 && (
+            <button onClick={() => setCurrentStep(currentStep - 1)}>
+              Previous
             </button>
-            {/* List of possible answers  */}
-            {/* <ul>
-              {steps[currentQuestion].options.map((option) => {
-                return (
-                  <li
-                    key={option.id}
-                    onClick={() => optionClicked(option.isCorrect)}
-                    className="mouse-pointer text-lg"
-                  >
-                    {option.text}
-                  </li>
-                );
-              })}
-            </ul> */}
-          </div>
-        )}
+          )}
+          {currentStep + 1 < steps.length && (
+            <button onClick={() => handleClick()}>Next</button>
+          )}
+        </div>
       </div>
     </div>
   );
