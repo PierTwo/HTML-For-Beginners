@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Tutorial } = require('../models');
 const { signToken } = require('../utils/auth');
