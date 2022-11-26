@@ -1,3 +1,3 @@
-const User = require("./User");
-const Progress = require("./Progress");
-module.exports = { User, Progress };
+const User = require('./User');
+const Tutorial = require('./Tutorial');
+module.exports = { User, Tutorial };
