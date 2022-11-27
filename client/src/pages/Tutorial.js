@@ -92,7 +92,6 @@ const Tutorial = (props) => {
   };
   const options = {
     lineNumbers: true,
-    height: 100,
   };
   const revealAnswer = (answer) => {
     editor.setValue(answer);
