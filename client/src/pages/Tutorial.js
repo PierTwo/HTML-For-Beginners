@@ -125,14 +125,15 @@ const Tutorial = (props) => {
                     'data:text/html;charset=utf-8,' + e.getValue();
                 }}
               />
-              <button onClick={() => revealAnswer(steps[currentStep].answer)}>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => revealAnswer(steps[currentStep].answer)}>
                 Show Me
               </button>
               <iframe id="display" title="Output" />
             </>
           )}
           {currentStep > 0 && (
-            <button
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => {
                 editor.setValue('');
                 setCurrentStep(currentStep - 1);
@@ -142,7 +143,7 @@ const Tutorial = (props) => {
             </button>
           )}
           {currentStep + 1 < steps.length && (
-            <button
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => {
                 editor.setValue('');
                 handleClick();
