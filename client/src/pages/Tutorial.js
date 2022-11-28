@@ -80,7 +80,10 @@ const Tutorial = (props) => {
 
   const handleClick = () => {
     setCurrentStep(currentStep + 1);
-    if (currentStep + 1 > data.tutorial.step_completed) {
+    if (
+      currentStep + 1 > data.tutorial?.step_completed ||
+      !data.tutorial?.step_completed
+    ) {
       setTutorial({
         variables: {
           username,
@@ -134,7 +137,7 @@ const Tutorial = (props) => {
           {currentStep > 0 && (
             <button
               onClick={() => {
-                editor.setValue('');
+                if (editor) editor.setValue('');
                 setCurrentStep(currentStep - 1);
               }}
             >
@@ -144,7 +147,7 @@ const Tutorial = (props) => {
           {currentStep + 1 < steps.length && (
             <button
               onClick={() => {
-                editor.setValue('');
+                if (editor) editor.setValue('');
                 handleClick();
               }}
             >
