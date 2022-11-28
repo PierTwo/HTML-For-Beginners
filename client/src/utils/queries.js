@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -20,22 +20,12 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const GET_PROGRESS = gql`
-  query getProgress(
-    $username: String!
-    $tutorial_id: Int
-    $step_completed: Int
-  ) {
-    getProgress(
-      username: $username
-      tutorial_id: $tutorial_id
-      step_completed: $step_completed
-    ) {
-      results {
-        username
-        tutorial_id
-        step_completed
-      }
+export const GET_TUTORIAL = gql`
+  query tutorial($username: String!, $tutorial_id: Int) {
+    tutorial(username: $username, tutorial_id: $tutorial_id) {
+      username
+      tutorial_id
+      step_completed
     }
   }
 `;
