@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_TUTORIAL } from '../utils/queries';
@@ -14,10 +15,20 @@ const Tutorial = (props) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [editor, setEditor] = useState(null);
 
-  const { loading, data } = useQuery(GET_TUTORIAL, {
+  const { loading, data, refetch } = useQuery(GET_TUTORIAL, {
+    fetchPolicy: 'network-only',
     variables: { username, tutorial_id: 1 },
   });
-  const [setTutorial] = useMutation(SET_TUTORIAL);
+  const [setTutorial] = useMutation(SET_TUTORIAL, {
+    fetchPolicy: 'network-only',
+    onCompleted() {
+      refetch({
+        username,
+        tutorial_id: 1,
+        step_completed: currentStep + 1,
+      });
+    },
+  });
   useEffect(() => {
     if (data?.tutorial) {
       setCurrentStep(
@@ -57,24 +68,29 @@ const Tutorial = (props) => {
     },
     {
       text: 'To add a title to your HTML document you will simply add <title>’title here’</title> within the <head></head> tags.',
-      useEditor: true,
+      useEditor: false,
     },
     {
-      text: 'Most tags in HTML are not self closing. So far you have been working on tags that need to be closed such as <head></head>, <html></html> and so on. There are some tags in HTML that are actually self closing such as <img /> which I am sure you can imagine is linking in an image.',
+      text: 'Most tags in HTML are not self closing. So far you have been working on tags that need to be closed such as <head></head>, <html></html> and so on. There are some tags in HTML that are actually self closing such as <img /> which I am sure you can imagine is linking in an image. Try creating an image tag in the embedded code editor. Set the src property to an image url of your choice. You can set the alt to give it a name and even change the height and width.',
       useEditor: true,
+      answer:
+        '<img src="https://logoeps.com/wp-content/uploads/2014/06/36972-html-5-sketched-logo-outline-icon-vector-icon-vector-eps.png" alt="html5">',
     },
     {
-      text: 'A heading tag is defined by using <h1></h1>. These tags can go all the way up to <h6>. The lower the number, such as 1 the bigger the text will be, the higher the number, such as 6 the smaller the text will be.',
+      text: 'A heading tag is defined by using <h1></h1>. These tags can go all the way up to <h6>. The lower the number, such as 1 the bigger the text will be, the higher the number, such as 6 the smaller the text will be. Use the code editor to try out different heading tags.',
       useEditor: true,
+      answer:
+        '<h1>Hello!<h1> <h2>Hello!<h2> <h3>Hello!<h3> <h4>Hello!<h4> <h5>Hello!<h5> ',
     },
     {
-      text: 'Link tags are defined by using <a href= “”>’text here’</a>. This allows the user to add links that they need to their document. Once this is added the link will be clickable by a user and will be taken to that link provided.',
+      text: 'Link tags are defined by using <a href= “”>’text here’</a>. This allows the user to add links that they need to their document. Once this is added the link will be clickable by a user and will be taken to that link provided. Make a a tag and set the href to a url of your choosing. Usually in a tags you want to make a target propert and set it to blank like target =_blank',
       useEditor: true,
-      answer: '<a href="https://google.com">Click Me<a>',
+      answer: '<a href="https://google.com" target="_blank">Click Me<a>',
     },
     {
-      text: 'You can create list in HTML using either <ol> tags which stand for ordered lists and then <ul> tags which stand for unordered lists. Once the list is created you will use <li> in between whatever list you use, the ordered or unordered tags. The <li> tag stands for list item so that will end up adding an item to your list.',
+      text: 'You can create list in HTML using either <ol> tags which stand for ordered lists and then <ul> tags which stand for unordered lists. Once the list is created you will use <li> in between whatever list you use, the ordered or unordered tags. The <li> tag stands for list item so that will end up adding an item to your list. Make alist of at least two items by wrapping ol tags in li tags for each item you want.',
       useEditor: true,
+      answer: '<ol><li>Coffee</li> <li>Tea</li> <li>Milk</li><ol>',
     },
   ];
 
@@ -154,6 +170,11 @@ const Tutorial = (props) => {
             >
               Next
             </button>
+          )}
+          {data.tutorial?.step_completed === steps.length - 1 && (
+            <Link className="btn font-medium p-3 m-2" to="/quiz">
+              Take Quiz
+            </Link>
           )}
         </div>
       </div>
