@@ -8,6 +8,7 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/javascript/javascript');
+// import Progress_bar from '../components/progress';
 
 const Tutorial = (props) => {
   const [username] = useState(props.data.username);
@@ -116,8 +117,9 @@ const Tutorial = (props) => {
     editor.setValue(answer);
   };
   return (
-    <div className="rounded p-8 mt-8 flex justify-center">
-      <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
+
+    <div className="clear-footer-overlap rounded mt-8 flex items-center">
+      <div className="rounded grid justify-items-center bg-sky-200 shadow-inner">
         <div className="pt-2 pb-2 mt-2 mb-2">
           <h1 className="bg-zinc-900 rounded p-2 font-extrabold text-4xl text-slate-50">
             HTML Tutorial
@@ -144,15 +146,19 @@ const Tutorial = (props) => {
                     'data:text/html;charset=utf-8,' + e.getValue();
                 }}
               />
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => revealAnswer(steps[currentStep].answer)}>
+              <button
+                className="m-4 bg-sky-500/100 px-4 pt-2 pb-2 mb-4 text-white"
+                onClick={() => revealAnswer(steps[currentStep].answer)}
+              >
                 Show Me
               </button>
               <iframe id="display" title="Output" />
             </>
           )}
           {currentStep > 0 && (
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+
+            <button
+              className="m-4 bg-sky-500/100 px-4 pt-2 pb-2 mb-4 text-white"
               onClick={() => {
                 if (editor) editor.setValue('');
                 setCurrentStep(currentStep - 1);
@@ -162,7 +168,8 @@ const Tutorial = (props) => {
             </button>
           )}
           {currentStep + 1 < steps.length && (
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            <button
+              className="m-4 bg-sky-500/100 px-4 pt-2 pb-2 mb-4 text-white"
               onClick={() => {
                 if (editor) editor.setValue('');
                 handleClick();
