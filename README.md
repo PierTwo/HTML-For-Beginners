@@ -3,8 +3,16 @@
 ## Description
 👋Our app is a fun and interactive way to learn HTML! This app allows the user to practice coding. The user will be able to log into the application and see the progress they have made while going through the app. As the user types out the code the user will be able to see a live view of the HTML.
 
+## Screenshot
+![html-for-beginners](https://user-images.githubusercontent.com/105994964/204432181-177ddeb8-e139-4269-bdaf-837452585eb2.jpg)
+
+## Link
+https://lit-bayou-05963.herokuapp.com/
+
 ## Table of Contents
 - [Description](#description)
+- [Screenshot](#screenshot)
+- [Link](#link)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
@@ -40,3 +48,6 @@ Find us on GitHub: <br />
 [jordanb366](https://github.com/jordanb366) <br />
 [brad1200](https://github.com/brad1200)<br />
 <br />
+
+## Credits
+[davidrazmadzeExtra](https://github.com/davidrazmadzeExtra/Multiple_Choice_Quiz_ReactJS)
