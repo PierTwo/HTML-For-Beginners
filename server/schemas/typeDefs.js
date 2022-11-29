@@ -6,6 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    tutorial: [Tutorial]
   }
 
   type Auth {
@@ -23,6 +24,7 @@ const typeDefs = gql`
     user: [User]
     me: User
     tutorial(username: String, tutorial_id: Int): Tutorial
+    completion: Tutorial
   }
 
   type Mutation {

@@ -117,7 +117,6 @@ const Tutorial = (props) => {
     editor.setValue(answer);
   };
   return (
-
     <div className="clear-footer-overlap rounded mt-8 flex items-center">
       <div className="rounded grid justify-items-center bg-sky-200 shadow-inner">
         <div className="pt-2 pb-2 mt-2 mb-2">
@@ -156,7 +155,6 @@ const Tutorial = (props) => {
             </>
           )}
           {currentStep > 0 && (
-
             <button
               className="m-4 bg-sky-500/100 px-4 pt-2 pb-2 mb-4 text-white"
               onClick={() => {

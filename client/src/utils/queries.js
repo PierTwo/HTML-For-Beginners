@@ -29,3 +29,11 @@ export const GET_TUTORIAL = gql`
     }
   }
 `;
+
+export const GET_COMPLETION = gql`
+  query completion {
+    completion {
+      step_completed
+    }
+  }
+`;
