@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_TUTORIAL } from '../utils/queries';
@@ -14,10 +15,20 @@ const Tutorial = (props) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [editor, setEditor] = useState(null);
 
-  const { loading, data } = useQuery(GET_TUTORIAL, {
+  const { loading, data, refetch } = useQuery(GET_TUTORIAL, {
+    fetchPolicy: 'network-only',
     variables: { username, tutorial_id: 1 },
   });
-  const [setTutorial] = useMutation(SET_TUTORIAL);
+  const [setTutorial] = useMutation(SET_TUTORIAL, {
+    fetchPolicy: 'network-only',
+    onCompleted() {
+      refetch({
+        username,
+        tutorial_id: 1,
+        step_completed: currentStep + 1,
+      });
+    },
+  });
   useEffect(() => {
     if (data?.tutorial) {
       setCurrentStep(
@@ -153,6 +164,11 @@ const Tutorial = (props) => {
             >
               Next
             </button>
+          )}
+          {data.tutorial?.step_completed === steps.length - 1 && (
+            <Link className="btn font-medium p-3 m-2" to="/quiz">
+              Take Quiz
+            </Link>
           )}
         </div>
       </div>
