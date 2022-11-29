@@ -1,0 +1,33 @@
+/* CSS goes here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Clears the footing from overlapping content */
+.clear-footer-overlap {
+  padding-bottom: 200px;
+}
+
+.mouse-pointer:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+footer {
+  margin-top: 100px;
+  clear: both;
+  overflow: auto;
+  background-color: #77625c;
+  position: absolute;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
