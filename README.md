@@ -40,3 +40,6 @@ Find us on GitHub: <br />
 [jordanb366](https://github.com/jordanb366) <br />
 [brad1200](https://github.com/brad1200)<br />
 <br />
+
+## Credits
+[davidrazmadzeExtra](https://github.com/davidrazmadzeExtra/Multiple_Choice_Quiz_ReactJS)
