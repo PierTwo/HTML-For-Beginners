@@ -8,6 +8,11 @@ html {
   min-height: 100vh;
 }
 
+/* Clears the footing from overlapping content */
+.clear-footer-overlap {
+  padding-bottom: 200px;
+}
+
 .mouse-pointer:hover {
   cursor: pointer;
   background-color: aliceblue;
