@@ -7,6 +7,7 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/javascript/javascript');
+// import Progress_bar from '../components/progress';
 
 const Tutorial = (props) => {
   const [username] = useState(props.data.username);
@@ -100,6 +101,8 @@ const Tutorial = (props) => {
     editor.setValue(answer);
   };
   return (
+
+
     <div className="rounded p-8 mt-8 flex justify-center">
       <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
         <div className="pt-2 pb-2 mt-2 mb-2">

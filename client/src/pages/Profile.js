@@ -5,6 +5,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
+import Progress_bar from "../components/progress";
+import Tutorial from "./Tutorial";
+
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -38,6 +41,8 @@ const Profile = () => {
         <h2 className="">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
+        <h3 className="heading">Progress Bar</h3>
+        <Progress_bar bgcolor="lightblue" progress="100" height={30} />
 
         {!userParam && (
           <div className="" style={{ border: "1px dotted #1a1a1a" }}></div>
