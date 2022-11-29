@@ -100,8 +100,8 @@ const Tutorial = (props) => {
     editor.setValue(answer);
   };
   return (
-    <div className="clear-footer-overlap rounded p-8 mt-8 flex items-center">
-      <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
+    <div className="clear-footer-overlap rounded mt-8 flex items-center">
+      <div className="rounded grid justify-items-center bg-sky-200 shadow-inner">
         <div className="pt-2 pb-2 mt-2 mb-2">
           <h1 className="bg-zinc-900 rounded p-2 font-extrabold text-4xl text-slate-50">
             HTML Tutorial
