@@ -21,6 +21,12 @@ const resolvers = {
       });
       return results;
     },
+    completion: async (parent, args, context) => {
+      const results = await Tutorial.findOne({
+        username: context.user.username,
+      });
+      return results;
+    },
   },
 
   Mutation: {

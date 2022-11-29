@@ -101,8 +101,6 @@ const Tutorial = (props) => {
     editor.setValue(answer);
   };
   return (
-
-
     <div className="rounded p-8 mt-8 flex justify-center">
       <div className="rounded p-8 grid justify-items-center bg-sky-200 shadow-inner">
         <div className="pt-2 pb-2 mt-2 mb-2">
@@ -131,15 +129,18 @@ const Tutorial = (props) => {
                     'data:text/html;charset=utf-8,' + e.getValue();
                 }}
               />
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => revealAnswer(steps[currentStep].answer)}>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => revealAnswer(steps[currentStep].answer)}
+              >
                 Show Me
               </button>
               <iframe id="display" title="Output" />
             </>
           )}
           {currentStep > 0 && (
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => {
                 if (editor) editor.setValue('');
                 setCurrentStep(currentStep - 1);
@@ -149,7 +150,8 @@ const Tutorial = (props) => {
             </button>
           )}
           {currentStep + 1 < steps.length && (
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => {
                 if (editor) editor.setValue('');
                 handleClick();
